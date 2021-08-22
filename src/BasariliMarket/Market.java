@@ -6,28 +6,28 @@ import java.util.Scanner;
 public class Market {
     
     
-    /* Basrili Market alýþ-veriþ programý.
+    /* Basrili Market alï¿½ï¿½-veriï¿½ programï¿½.
      *{d,p,...l} {2.10,3.20....0.50}
-     * 1. Adým: Ürünler ve fiyatlarý içeren listeleri oluþturunuz.
-     *          No     Ürün         Fiyat
+     * 1. Adï¿½m: ï¿½rï¿½nler ve fiyatlarï¿½ iï¿½eren listeleri oluï¿½turunuz.
+     *          No     ï¿½rï¿½n         Fiyat
                ====  =======        =========
                 00   Domates         2.10 TL
                 01   Patates         3.20 TL
                 02   Biber           1.50 TL
-                03   Soðan          2.30 TL
-                04   Havuç              3.10 TL
+                03   Soï¿½an          2.30 TL
+                04   Havuï¿½              3.10 TL
                 05   Elma            1.20 TL
                 06   Muz             1.90 TL
-                07   Çilek              6.10 TL
+                07   ï¿½ilek              6.10 TL
                 08   Kavun           4.30 TL
-                09   Üzüm              2.70 TL
+                09   ï¿½zï¿½m              2.70 TL
                 10   Limon           0.50 TL
-     * 2. Adým: Kullanýcýnýn ürün nosuna göre listeden ürün seçmesini isteyiniz.
-     * 3. Adým: Kaç kg satýn almak istediðini sorunuz.
-     * 4. Adým: Alýnacak bu ürünü sepete ekleyiniz ve Sepeti yazdýrýnýz.
-     * 5. Baþka bir ürün alýp almak istemediðini sorunuz.
-     * 6. Eðer devam etmek istiyorsa yeniden ürün seçme kýsmýna yönlendiriniz.
-     * 7. Eðer bitirmek istiyorsa ödeme kýsmýna geçiniz ve ödeme sonrasýnda programý bitiriniz
+     * 2. Adï¿½m: Kullanï¿½cï¿½nï¿½n ï¿½rï¿½n nosuna gï¿½re listeden ï¿½rï¿½n seï¿½mesini isteyiniz.
+     * 3. Adï¿½m: Kaï¿½ kg satï¿½n almak istediï¿½ini sorunuz.
+     * 4. Adï¿½m: Alï¿½nacak bu ï¿½rï¿½nï¿½ sepete ekleyiniz ve Sepeti yazdï¿½rï¿½nï¿½z.
+     * 5. Baï¿½ka bir ï¿½rï¿½n alï¿½p almak istemediï¿½ini sorunuz.
+     * 6. Eï¿½er devam etmek istiyorsa yeniden ï¿½rï¿½n seï¿½me kï¿½smï¿½na yï¿½nlendiriniz.
+     * 7. Eï¿½er bitirmek istiyorsa ï¿½deme kï¿½smï¿½na geï¿½iniz ve ï¿½deme sonrasï¿½nda programï¿½ bitiriniz
      */
     
     public static List<String> urunler=new ArrayList();
@@ -39,7 +39,7 @@ public class Market {
     public static void main(String[] args) {
         
         Scanner scan=new Scanner(System.in);
-        urunler.addAll(Arrays.asList("Domates","Patates","Biber","Soðan","Havuç","Elma","Muz","Cilek","Kavun","Uzum","Limon"));
+        urunler.addAll(Arrays.asList("Domates","Patates","Biber","Soï¿½an","Havuï¿½","Elma","Muz","Cilek","Kavun","Uzum","Limon"));
         fiyatlar.addAll(Arrays.asList(2.1,3.2,1.5,2.3,3.1,1.2,1.9,6.1,4.3,2.7,0.5));
         int urunNo;
         double kg=0;
@@ -49,12 +49,12 @@ public class Market {
         
         do {
         urunleriListele();
-        System.out.println("Almak istediðiniz urunun numarasýný girin");
+        System.out.println("Almak istediï¿½iniz urunun numarasï¿½nï¿½ girin");
         urunNo=scan.nextInt();
-        System.out.println("kaç kilo almak istiyorsunuz");
+        System.out.println("kaï¿½ kilo almak istiyorsunuz");
         kg=scan.nextDouble();
         sepeteEkle(urunNo,kg);
-        toplam=sepetiYazdýr();
+        toplam=sepetiYazdir();
         System.out.println();
         System.out.println("devam etmek istiyor musunuz(E/H)");
         devam=scan.next();
@@ -73,23 +73,23 @@ public class Market {
         
         do {
             
-        System.out.println("Ne kadar paranýz var");
+        System.out.println("Ne kadar paranï¿½z var");
         miktar+=scan.nextDouble();
         if (miktar<toplam) {
-            System.out.println("Paranýz yetersiz, ekleme yapýn");
-            System.out.println("ekleme yapacaðýnýz miktar= "+(toplam-miktar));
+            System.out.println("Paranï¿½z yetersiz, ekleme yapï¿½n");
+            System.out.println("ekleme yapacaï¿½ï¿½nï¿½z miktar= "+(toplam-miktar));
         }
         }while(miktar<=toplam);
         System.out.println("----------------------------------------------------");
-        System.out.println("þu ana kadar"+ miktar +" kadar odeme yaptýnýz");
+        System.out.println("ï¿½u ana kadar"+ miktar +" kadar odeme yaptï¿½nï¿½z");
         System.out.println("toplam borcunuz "+toplam);
         System.out.println("--------------------------------------------------");
         
-        System.out.println("para üstünüz= "+(miktar-toplam));
-        System.out.println("Bizi tercih ettiðiniz için teþekkürler");
+        System.out.println("para ï¿½stï¿½nï¿½z= "+(miktar-toplam));
+        System.out.println("Bizi tercih ettiï¿½iniz iï¿½in teï¿½ekkï¿½rler");
         
     }
-    public static double sepetiYazdýr() {
+    public static double sepetiYazdir() {
         double sepettekiToplam=0;
         System.out.println("URUNADI\tKILO\tTUTAR");
         System.out.println("------------------------------------------");
