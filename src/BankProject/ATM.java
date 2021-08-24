@@ -1,10 +1,8 @@
-package FarukEfehanBankProject;
+package BankProject;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.regex.MatchResult;
 
 public class ATM {
 
