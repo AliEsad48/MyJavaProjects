@@ -6,33 +6,61 @@ import java.util.List;
 public class Kutular {
 
     /*
-
-    --public void kutuEkle(Kutu kutu)
+	 		--public void kutuEkle(Kutu kutu)
 	 		--public void kutuActir(int kutuNumarasi)
 	 		--public int kalanKutuSayisi()
 	 		--public int kutulardakiToplamParaMiktari()
-	 		--public void secilenKutuyuKutularListesindenKaldır()
-	 		public void yapimcininTeklifiniAl()
-	 		public String acilmamisKutularıGoster()
-	 		public void kaybedilenTutarlar()
+	 		--public void secilenKutuyuKutularListesindenKaldır(int kutuNumarasi)
+	 		--public void yapimcininTeklifiniAl()
+	 		--public String acilmamisKutularıGoster()
+	 		--public void kaybedilenTutarlar()
+	 */
 
-    */
 
-    List <Kutu> kutuListesi=new ArrayList<>();
+    List<Kutu> kutuListesi=new ArrayList<>();  // data type classtan alıyor
 
-    public void kutuEkle(Kutu kutu){
+    // datatype Kutu dedik çünkü Kutu classından oluşturduğumuz nesneye 2 bilgi atadık
+
+    public void kutuEkle(Kutu kutu) {
 
         kutuListesi.add(kutu);
+    }
+
+    public void kutuActir(int kutuNumarasi) {
+
+        for (Kutu k : kutuListesi) {
+
+            if (kutuNumarasi==k.getKutuNumarasi()) {
+                System.out.println("kutudaki miktar = "+k.getParaMiktari());
+                kutuListesi.remove(k);
+                break;
+            }
+
+        }
+    }
+
+    public int kalanKutuSayisi() {
+
+        return kutuListesi.size();
 
     }
 
-    public void kutuActir(int kutuNumarasi){
+    public int kutulardakiToplamParaMiktari() {
+        int toplamPara=0;
+        for (Kutu k : kutuListesi) {
 
-        for (Kutu k:kutuListesi) {
+            toplamPara+=k.getParaMiktari();		//toplamPara=toplamPara+k.getParaMiktari();
 
-            if (kutuNumarasi == k.getKutuNumarasi()) {
+        }
+        return toplamPara;
 
-                System.out.println("Kutudaki Miktar = " + k.getParaMiktari());
+    }
+
+    public void secilenKutuyuKutularListesindenKaldir(int kutuNumarasi) {
+
+        for (Kutu k : kutuListesi) {
+
+            if (kutuNumarasi==k.getKutuNumarasi()) {
 
                 kutuListesi.remove(k);
                 break;
@@ -41,30 +69,33 @@ public class Kutular {
 
         }
 
-    }
-
-    public int kalanKutuSayisi(){
-
-        return kutuListesi.size();
 
     }
 
-    public int kutulardakiToplamParaMiktari(){
+    public int yapimcininTeklifiniAl(int oyuncununKendiKutusundakiMiktar) {
 
+        int teklif=kutulardakiToplamParaMiktari()+oyuncununKendiKutusundakiMiktar/2;
 
-        int paraMiktari =0;
-        for (Kutu w : kutuListesi) {
-            paraMiktari+=w.getParaMiktari();
+        return teklif;
+
+    }
+
+    public String acilmamisKutulariGoster(){
+
+        String acilmamisKutular = "";
+
+        for (Kutu k:kutuListesi) {
+
+            acilmamisKutular= acilmamisKutular + " " + k.getKutuNumarasi();
+
         }
-        return paraMiktari;
+        return acilmamisKutular;
     }
 
-    public void secilenKutuyuKutularListesindenKaldır(){
+    public void kaybedilenTutarlar(){
 
 
 
     }
 
 }
-
-
