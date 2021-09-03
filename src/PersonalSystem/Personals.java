@@ -17,7 +17,11 @@ public class Personals {
         private String lastName;
         private int level;
 
+        private String levelString;
+
         private static int maas ;
+
+
 
 
         public void setStudentId() {
@@ -46,6 +50,20 @@ public class Personals {
             System.out.println("Lütfen çalýþanýn maaþýný giriniz");
 
             this.maas= scan.nextInt();
+
+            if (level == 1) {
+
+                this.levelString="Junior";
+
+            }else if (level == 2) {
+
+                this.levelString="Middle";
+
+            }else if (level == 1) {
+
+                this.levelString="Senior";
+
+            }
 
             setStudentId();
 
