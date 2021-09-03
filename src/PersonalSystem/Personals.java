@@ -76,7 +76,7 @@ public class Personals {
 
         public String toString() {
 
-            return "ÇALIÞANIN NUMARASI: " + personalId + "\nÇALIÞANIN ADI: " + firstName + " " + lastName + "\nÇALIÞANIN SEVÝYESÝ: " + level +  "\nMAAS: " + maas + "$";
+            return "ÇALIÞANIN NUMARASI: " + personalId + "\nÇALIÞANIN ADI: " + firstName + " " + lastName + "\nÇALIÞANIN SEVÝYESÝ: " + levelString +  "\nMAAS: " + maas + "$";
 
 
         }
