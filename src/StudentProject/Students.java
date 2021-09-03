@@ -94,16 +94,16 @@ public class Students {
 
         toplamFiyat = toplamFiyat - odenenTutar;
 
-        System.out.println(odenenTutar + "? ödediðiniz için teþekkürler");
+        System.out.println(odenenTutar + "$ ödediðiniz için teþekkürler");
 
-        System.out.println(odenenTutar + "? ödediniz kalan tutar : " + toplamFiyat + "?");
+        System.out.println(odenenTutar + "$ ödediniz kalan tutar : " + toplamFiyat + "?");
 
 
     }
 
     public String toString() {
 
-        return "ÖÐRENCÝNÝN NUMARASI: " + studentId + "\nÖÐRENCÝNÝN ADI: " + firstName + " " + lastName + "\nÖÐRENCÝNÝN SINIFI: " + sinif + "\nÖÐRENCÝNÝN DERSLERÝ: " + dersler + "\nKALAN ÖDEME: " + toplamFiyat + "?";
+        return "ÖÐRENCÝNÝN NUMARASI: " + studentId + "\nÖÐRENCÝNÝN ADI: " + firstName + " " + lastName + "\nÖÐRENCÝNÝN SINIFI: " + sinif + "\nÖÐRENCÝNÝN DERSLERÝ: " + dersler + "\nKALAN ÖDEME: " + toplamFiyat + "$";
 
 
     }

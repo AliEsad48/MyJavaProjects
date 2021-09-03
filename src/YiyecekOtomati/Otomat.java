@@ -18,7 +18,7 @@ oop concepte ait öðrendiklerimizi kullanmaya çalýþalým...
 iyi çalýþmalar
 Kolay gelsin...
 */
-F
+
 import java.util.*;
 
 public class Otomat {
