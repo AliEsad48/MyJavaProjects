@@ -24,7 +24,7 @@ public class Personals {
 
 
 
-        public void setStudentId() {
+        public void setPersonalId() {
 
             id++;
             this.personalId = level + "" + id;
@@ -65,8 +65,11 @@ public class Personals {
 
             }
 
-            setStudentId();
+            setPersonalId();
 
+            System.out.println("Id niz : " + personalId);
+
+            System.out.println("Id nizi bir yere kaydetmenzi öneririz");
 
         }
 
