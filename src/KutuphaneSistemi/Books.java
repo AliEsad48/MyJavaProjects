@@ -41,6 +41,10 @@ public class Books {
 
         setbookId();
 
+        System.out.println("Id niz : " + bookId);
+
+        System.out.println("Bu idyi unutmayýn");
+
 
     }
 
@@ -54,6 +58,8 @@ public class Books {
 
     static Map<String , String> kitapBilgileri=new HashMap<>();
 
+    static Map<Integer , String> kitapBilgileriInt=new HashMap<>();
+
     public static void mapeKitapEkle(){
 
         Scanner scan=new Scanner(System.in);
@@ -66,6 +72,9 @@ public class Books {
 
 
             kitapBilgileri.put(b.bookId , b.toString());
+            kitapBilgileriInt.put(id , b.toString());
+
+
 
             System.out.println("Ýþlemleri bitirmek için dur yazýnýz\nDevam etmek için entera basýnýz");
 
@@ -136,7 +145,7 @@ public class Books {
 
     public static void islemSec() {
 
-        System.out.println("Ýþlem seçin:\n1-Kitap Ekleme\n2-Kitabýn bilgilerini getirme\n3-Kitbýn bilgilerini silme");
+        System.out.println("Ýþlem seçin:\n1-Kitap Ekleme\n2-Kitabýn bilgilerini getirme\n3-Kitbýn bilgilerini silme\n4-Tüm kitaplarý görme");
 
         Scanner scan=new Scanner(System.in);
 
@@ -161,6 +170,12 @@ public class Books {
 
                 break;
 
+            case 4:
+
+                tumKitaplariYazdir();
+
+               break;
+
             default:
                 System.out.println("Yanlýþ iþlem girdiniz 1,2 ya da 3 giriniz");
                 islemSec();
@@ -169,6 +184,18 @@ public class Books {
         }
 
         islemSec();
+
+    }
+
+    public static void tumKitaplariYazdir(){
+
+        for (int i = 1; i <= kitapBilgileriInt.size(); i++) {
+
+            System.out.println(kitapBilgileriInt.get(i));
+
+            System.out.println("--------------------------------");
+
+        }
 
     }
 

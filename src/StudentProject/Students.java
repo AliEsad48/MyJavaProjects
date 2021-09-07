@@ -14,6 +14,8 @@ public class Students {
     private String dersler = "";
     private static int kursFiyati = 1250;
     private static int toplamFiyat;
+    static String SIFRE="1453";
+    static String gsifre="";
 
     public void setStudentId() {
 
@@ -34,7 +36,7 @@ public class Students {
 
         this.lastName = scan.nextLine();
 
-        System.out.println("Lütfen öðrencinin sýnýfýný giriniz\n1- 1.Sýnýf\n2- 2.Sýnýf\n3- 3.Sýnýf\n4-4.Sýnýf");
+        System.out.println("Lütfen öðrencinin sýnýfýný giriniz\n1- 1.Sýnýf\n2- 2.Sýnýf\n3- 3.Sýnýf\n4- 4.Sýnýf");
 
         this.sinif = scan.nextInt();
 
@@ -79,6 +81,8 @@ public class Students {
 
         System.out.println("Aþaðýdaki derslere kayýt oldunuz : " + dersler);
 
+        System.out.println("Id'niz : " + studentId);
+
 
     }
 
@@ -110,7 +114,7 @@ public class Students {
 
     static Map<String, String> ogrenciBilgileri = new HashMap<>();
 
-    public static void mapeOgrenciEkleme() {
+    public static void mapeOgrenciEkleme() throws InterruptedException {
 
         Scanner scan = new Scanner(System.in);
 
@@ -136,7 +140,7 @@ public class Students {
 
     }
 
-    public static void getStudentsInfo(){
+    public static void getStudentsInfo() throws InterruptedException {
 
         Scanner scan=new Scanner(System.in);
 
@@ -164,7 +168,7 @@ public class Students {
 
     }
 
-    public static void ogrenciSil(){
+    public static void ogrenciSil() throws InterruptedException {
 
         Scanner scan=new Scanner(System.in);
 
@@ -194,42 +198,126 @@ public class Students {
 
     }
 
-    public static void islemSec(){
-
-        System.out.println("Ýþlem seçin:\n1-Öðrenci Ekleme\n2-Öðrencinin bilgilerini getirme\n3-Öðrencinin bilgilerini silme");
+    public static void islemSec() throws InterruptedException {
 
         Scanner scan=new Scanner(System.in);
 
-        int islem=scan.nextInt();
+        System.out.println("Lütfen gitmek istediðiniz ekraný giriniz:\n1-Admin Ekraný\n2-Kayýt Ekraný");
 
-        switch (islem){
+       int islem2=scan.nextInt();
 
-            case 1:
 
-                mapeOgrenciEkleme();
-                break;
 
-            case 2:
-
-                getStudentsInfo();
-
-                break;
-
-            case 3:
-
-                ogrenciSil();
-
-                break;
+        switch (islem2){
 
             default:
                 System.out.println("Yanlýþ iþlem girdiniz 1,2 ya da 3 giriniz");
                 islemSec();
                 break;
+            case 2:
 
-        }
+                mapeOgrenciEkleme();
 
-        islemSec();
+                break;
+            case 1:
+
+
+                int count=3;
+
+                System.out.println("Lütfen admin þifresini giriniz : ");
+
+                gsifre=scan.nextLine();
+
+                gsifre=scan.next();
+
+                System.out.println("Þifre kontrol ediliyor......");
+                Thread.sleep(4000);
+
+                do {
+
+
+
+                    if (gsifre.equals(SIFRE)) {
+
+                        adminIslemSec();
+
+
+                    } else {
+
+                count--;
+
+                System.out.println("Kalan hakkýnýz : " + count);
+
+                if (count!=0) {
+                    System.out.println("Lütfen admin þifresini giriniz : ");
+
+
+                    gsifre= scan.nextLine();
+                    gsifre=scan.next();
+
+                    System.out.println("Þifre kontrol ediliyor......");
+                    Thread.sleep(4000);
+                } else {
+
+                    System.out.println("Hakkýnýz doldu seçim ekranýna gidiyorusunuz......");
+
+                    Thread.sleep(4000);
+
+                    islemSec();
+
+                    break;
+
+
+                }
+
+            }
+        } while (true);
+
+
+
+
+
+
+
+
 
     }
+
+}
+
+public static  void adminIslemSec() throws InterruptedException {
+
+        Scanner scan=new Scanner(System.in);
+    System.out.println("Lütfen yapmak istediðiniz iþlemiz seçiniz : \n1-Öðrenci Ekleme\n2-Öðrenci Bilgilerini Getirme\n3-Öðrenci Silme");
+
+    int islem3= scan.nextInt();
+
+    switch (islem3){
+
+        case 1:
+
+            mapeOgrenciEkleme();
+
+            break;
+
+        case 2:
+
+            getStudentsInfo();
+            break;
+        case 3:
+
+            ogrenciSil();
+            break;
+        default:
+
+            System.out.println("Hatalý iþlem girdiniz seçim ekranýna gidiyorsunuz");
+
+            islemSec();
+
+
+
+    }
+
+}
 
 }
